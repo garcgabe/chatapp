@@ -17,11 +17,11 @@ with right:
     st.write("mr. chat")
 
 
-write_tab = st.tabs(['write-back'])
+# write_tab = st.tabs(['write-back'])
 
-with write_tab:
-    reflection = st.text_area("speak here")
-    if st.button("send text"):
-        x = "y"
+# with write_tab:
+#     reflection = st.text_area("speak here")
+#     if st.button("send text"):
+#         x = "y"
 
 
