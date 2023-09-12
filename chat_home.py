@@ -1,8 +1,8 @@
 import streamlit as st
-import openai
 import whisper
 from gtts import gTTS 
 from playsound import playsound
+import openai
 openai.organization = st.secrets['OPENAI_ORG']
 openai.api_key = st.secrets['OPENAI_API_KEY']
 
