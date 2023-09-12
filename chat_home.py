@@ -5,8 +5,9 @@ import whisper
 from gtts import gTTS 
 from playsound import playsound
 import pandas as pd
-openai.organization = "org-NSiCfF7yvfZu4ow7YoYPCQmt"
-os.environ['OPENAI_API_KEY'] = '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'
+from config import OPENAI_API_KEY, OPENAI_ORG
+os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
+openai.organization = OPENAI_ORG
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = 'enter an input to receive an output'
