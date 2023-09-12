@@ -5,10 +5,8 @@ import whisper
 from gtts import gTTS 
 from playsound import playsound
 import pandas as pd
-from config import OPENAI_API_KEY, OPENAI_ORG
-os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
-openai.organization = OPENAI_ORG
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.organization = st.secrets['OPENAI_ORG']
+openai.api_key = st.secrets['OPENAI_API_KEY']
 
 response = 'enter an input to receive an output'
 name = 'gabriel garcia'
