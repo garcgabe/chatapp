@@ -1,6 +1,15 @@
 import streamlit as st
-import numpy as np
+import os
+import openai
+import whisper
+from gtts import gTTS 
+from playsound import playsound
+import pandas as pd
+openai.organization = "org-NSiCfF7yvfZu4ow7YoYPCQmt"
+os.environ['OPENAI_API_KEY'] = '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'
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
+response = 'enter an input to receive an output'
 name = 'gabriel garcia'
 ipsum = """Lorem ipsum dolor sit amet, 
 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -9,7 +18,30 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
 nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
  mollit anim id est laborum."""
 
+
+def call_turbo(prompt, max_tokens):
+    response = openai.ChatCompletion.create(
+    model = 'gpt-3.5-turbo',
+    messages = [
+        {"role": "user", "content": prompt}
+    ],
+    max_tokens = max_tokens
+    )
+    return response
+
+def toSpeech(message, language):
+    speech = gTTS(text = message, lang=language)
+    speech.save('example.mp3')
+    playsound('example.mp3')
+
 #st.sidebar.markdown("tutor")
+
+##
+##
+##    Beginning of
+##    App Frontend
+##
+##
 
 st.title("welcome to gpt")
 
@@ -19,8 +51,11 @@ with left:
     st.subheader("Human")
     st.write(name)
     st.text(ipsum)
+    input_text = st.text_area(label="talk with GPT", height=20)
+    if st.button("prompt"):
+        response = call_turbo(input_text)
 
 with right:
     st.subheader("GPT")
     st.write("mr. chat")
-    st.text(ipsum)
+    st.text(response)
