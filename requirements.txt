@@ -1,4 +1,4 @@
-gTTS
+gtts
 openai
 playsound
 streamlit
