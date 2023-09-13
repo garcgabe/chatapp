@@ -1,5 +1,4 @@
 import streamlit as st
-import whisper
 from gtts import gTTS 
 from playsound import playsound
 import openai
