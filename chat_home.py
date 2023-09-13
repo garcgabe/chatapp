@@ -46,10 +46,11 @@ left, right = st.columns(2, gap = "medium", )
 with left: 
     st.subheader("Human")
     st.write(name)
-    st.text(ipsum)
+    #st.text(ipsum)
     input_text = st.text_area(label="talk with GPT", height=20)
     if st.button("prompt"):
         response = call_turbo(input_text)
+        st.text(response[:15])
 
 with right:
     st.subheader("GPT")
