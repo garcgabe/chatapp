@@ -6,6 +6,7 @@ openai.organization = st.secrets['OPENAI_ORG']
 openai.api_key = st.secrets['OPENAI_API_KEY']
 
 response = 'enter an input to receive an output'
+message = "no chat sent"
 name = 'gabriel garcia'
 ipsum = """Lorem ipsum dolor sit amet, 
 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -51,9 +52,9 @@ with left:
     if st.button("prompt"):
         response = call_turbo(input_text, 50)
         message = response['choices'][0]['message']['content']
-        st.text(message)
+        st.text(response)
 
 with right:
     st.subheader("GPT")
     st.write("mr. chat")
-    st.text(response.keys)
+    st.text(message)
