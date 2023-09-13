@@ -51,10 +51,11 @@ with left:
     input_text = st.text_area(label="talk with GPT", height=20)
     if st.button("prompt"):
         response = call_turbo(input_text, 50)
-        message = response['choices'][0]['message']['content']
         st.text(response)
 
 with right:
     st.subheader("GPT")
     st.write("mr. chat")
+    if response:
+        message = response['choices'][0]['message']['content']
     st.text(message)
