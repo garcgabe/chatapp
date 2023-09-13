@@ -56,4 +56,4 @@ with left:
 with right:
     st.subheader("GPT")
     st.write("mr. chat")
-    st.text(response.keys())
+    st.text(response.keys)
