@@ -55,7 +55,7 @@ with left:
 
 with right:
     st.subheader("GPT")
-    st.write("mr. chat")
+    st.write("mr\. chat")
     if response:
         message = response['choices'][0]['message']['content']
     st.text(message)
