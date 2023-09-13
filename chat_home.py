@@ -58,4 +58,4 @@ with right:
     st.write("mr\. chat")
     if type(response) != str:
         message = response['choices'][0]['message']['content']
-    st.text(message)
+    st.text_area(message)
