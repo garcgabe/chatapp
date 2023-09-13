@@ -49,7 +49,7 @@ with left:
     #st.text(ipsum)
     input_text = st.text_area(label="talk with GPT", height=20)
     if st.button("prompt"):
-        response = call_turbo(input_text)
+        response = call_turbo(input_text, 50)
         st.text(response[:15])
 
 with right:
