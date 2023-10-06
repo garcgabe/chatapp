@@ -9,7 +9,7 @@ import openai
 import whisper
 # record audio
 import sounddevice as sd
-from scipy.io.wavfile import write
+#from scipy.io.wavfile import write
 
 openai.organization = st.secrets['OPENAI_ORG']
 openai.api_key = st.secrets['OPENAI_API_KEY']
