@@ -61,7 +61,7 @@ with left:
     st.write(name)
     #st.text(ipsum)
     input_text = st.text_area(label="talk with GPT", height=20)
-    if(st.button("speak")):
+    #if(st.button("speak")):
 
     if st.button("prompt"):
         response = call_turbo(input_text, 500)
