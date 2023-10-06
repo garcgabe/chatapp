@@ -44,6 +44,7 @@ def record_audio():
         st.audio(audio.export().read())
         audio.export("audio.wav", format="wav")
         return "audio.wav"
+    return ""
     
     # convert audio to np.ndarray for Whisper
     #sample_audio = audio.get_array_of_samples()
