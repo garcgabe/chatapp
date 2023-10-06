@@ -42,20 +42,31 @@ def toSpeech(message, language):
 
 st.title("welcome to gpt")
 
-left, right = st.columns(2, gap = "medium", )
 
-with left: 
-    st.subheader("Human")
-    st.write(name)
-    #st.text(ipsum)
-    input_text = st.text_area(label="talk with GPT", height=20)
-    if st.button("prompt"):
-        response = call_turbo(input_text, 1000)
-        st.text(response)
+user_input_container = st.chat_message("user"):
+input_text = st.chat_input("chat here")
+response = call_turbo(input_text, 500)
 
-with right:
-    st.subheader("GPT")
-    st.write("mr\. chat")
-    if type(response) != str:
-        message = response['choices'][0]['message']['content']
-    st.write(message)
+assistant_output_container = st.chat_message("assistant")
+
+
+# left, right = st.columns(2, gap = "medium", )
+
+# with left: 
+#     st.subheader("Human")
+#     st.write(name)
+#     #st.text(ipsum)
+#     input_text = st.text_area(label="talk with GPT", height=20)
+#     if(st.button("speak")):
+
+#     if st.button("prompt"):
+#         response = call_turbo(input_text, 500)
+#         st.text(response)
+
+
+# with right:
+#     st.subheader("GPT")
+#     st.write("mr\. chat")
+#     if type(response) != str:
+#         message = response['choices'][0]['message']['content']
+#     st.write(message)
