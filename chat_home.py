@@ -43,7 +43,7 @@ def toSpeech(message, language):
 st.title("welcome to gpt")
 
 
-user_input_container = st.chat_message("user"):
+user_input_container = st.chat_message("user")
 input_text = st.chat_input("chat here")
 response = call_turbo(input_text, 500)
 
