@@ -113,5 +113,4 @@ with left:
 with right:
     st.subheader("GPT")
     if type(bot_message) != str:
-        message = bot_message
-    st.write(message)
+        st.write(bot_message)
