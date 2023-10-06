@@ -102,13 +102,16 @@ with left:
     audio_input = record_audio()
     if len(audio_input) > 0:
         audio_input_text = audio_to_text(audio_input)
-    input_text = st.text_area(label="talk with GPT", height=20)
-    if st.button("prompt"):
-        bot_message = call_turbo(input_text, 500)
+    input_text = st.text_area(label="text input", height=20)
+    if st.button("send"):
+        if len(input_text)>0:
+            bot_message = call_turbo(input_text, 500)
+        elif audio_input_text:
+            bot_message = call_turbo(input_text, 500)
+        else:
+            pass
     if audio_input_text:
         st.write(f"You said:\n{audio_input_text}")
-    if st.button("send"):
-        bot_message = call_turbo(input_text, 500)
 
 
 with right:
