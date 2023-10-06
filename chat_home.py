@@ -116,5 +116,5 @@ with left:
 
 with right:
     st.subheader("GPT")
-    if type(bot_message) != str:
+    if bot_message != "no chat sent":
         st.write(bot_message)
