@@ -44,8 +44,6 @@ st.title("welcome to gpt")
 
 with st.chat_message("user"):
     st.write(user_message)
-    #input_text = st.chat_input("chat here")
-    #response = call_turbo(input_text, 500)
 
 with st.chat_message("assistant"):
     st.write(bot_message)
