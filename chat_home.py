@@ -6,6 +6,7 @@ openai.organization = st.secrets['OPENAI_ORG']
 openai.api_key = st.secrets['OPENAI_API_KEY']
 
 user_message = 'enter an input to receive an output'
+input_text=''
 bot_message = "no chat sent"
 name = 'gabriel garcia'
 ipsum = """Lorem ipsum dolor sit amet, 
