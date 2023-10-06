@@ -2,3 +2,4 @@ gtts
 openai
 playsound
 streamlit
+pyaudio
