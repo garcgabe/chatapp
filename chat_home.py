@@ -105,8 +105,8 @@ with left:
     if st.button("prompt"):
         bot_message = call_turbo(input_text, 500)
         st.text(bot_message)
-    
-    st.write(f"You said:\n{audio_input_text}")
+    if audio_input_text:
+        st.write(f"You said:\n{audio_input_text}")
 
 
 with right:
