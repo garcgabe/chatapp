@@ -39,7 +39,7 @@ def toSpeech(message, language):
 ##
 ##
 
-st.title("welcome to gpt")
+st.title("welc to gpt")
 
 
 with st.chat_message("user"):
