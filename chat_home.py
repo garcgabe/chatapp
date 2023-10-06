@@ -37,7 +37,7 @@ nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qu
 
 
 def record_audio():
-    print(sd.query_devices())
+    st.write(sd.query_devices())
     sd.InputStream(device=0, channels=1)
     fs = 44100  # Sample rate
     seconds = 10  # Duration of recording
