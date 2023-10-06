@@ -9,11 +9,7 @@ import openai
 import whisper
 
 # record audio
-import sounddevice as sd
 from audiorecorder import audiorecorder
-import numpy as np
-
-#from scipy.io.wavfile import write
 
 
 openai.organization = st.secrets['OPENAI_ORG']
@@ -56,7 +52,7 @@ def record_audio():
 # give it output.wav
 def audio_to_text(audio_file):
     model = whisper.load_model("small")
-    return model.transcribe(audio_file)
+    return model.transcribe(audio_file)['text']
 
 # takes in prompt and sends back response
 def call_turbo(prompt, max_tokens=1000):
