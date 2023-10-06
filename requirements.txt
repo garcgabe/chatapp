@@ -3,6 +3,5 @@ openai
 playsound
 streamlit
 sounddevice
-portaudio
 #scipy
 whisper
