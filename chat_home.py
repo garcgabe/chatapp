@@ -111,7 +111,7 @@ left, right = st.columns(2, gap = "medium", )
 
 with left: 
     st.write(name)
-    if(st.button("speak")):
+    #if(st.button("speak")):
         #audio = record_audio()
         #audio_input_text = audio_to_text(audio)
     input_text = st.text_area(label="talk with GPT", height=20)
