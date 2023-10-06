@@ -109,7 +109,7 @@ with left:
         if len(input_text)>0:
             bot_message = call_turbo(input_text, 500)
         elif audio_input_text:
-            bot_message = call_turbo(input_text, 500)
+            bot_message = call_turbo(audio_input_text, 500)
         else:
             pass
     if audio_input_text:
