@@ -64,12 +64,12 @@ with left:
     #if(st.button("speak")):
 
     if st.button("prompt"):
-        response = call_turbo(input_text, 500)
-        st.text(response)
+        bot_message = call_turbo(input_text, 500)
+        st.text(bot_message)
 
 
 with right:
     st.subheader("GPT")
-    if type(response) != str:
-        message = response['choices'][0]['message']['content']
+    if type(bot_message) != str:
+        message = bot_message['choices'][0]['message']['content']
     st.write(message)
