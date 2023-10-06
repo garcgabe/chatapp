@@ -2,4 +2,6 @@ gtts
 openai
 playsound
 streamlit
-pyaudio
+sounddevice
+scipy
+whisper

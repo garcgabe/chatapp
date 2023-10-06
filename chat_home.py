@@ -98,13 +98,15 @@ left, right = st.columns(2, gap = "medium", )
 
 with left: 
     st.write(name)
-    #st.text(ipsum)
+    if(st.button("speak")):
+        audio = record_audio()
+        audio_input_text = audio_to_text(audio)
     input_text = st.text_area(label="talk with GPT", height=20)
-    #if(st.button("speak")):
-
     if st.button("prompt"):
         bot_message = call_turbo(input_text, 500)
         st.text(bot_message)
+    
+    st.write(f"You said:\n{audio_input_text}")
 
 
 with right:
