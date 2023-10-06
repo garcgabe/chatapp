@@ -7,9 +7,13 @@ from playsound import playsound
 import openai
 # transcribe audio
 import whisper
+
 # record audio
 import sounddevice as sd
+from audiorecorder import audiorecorder
+
 #from scipy.io.wavfile import write
+
 
 openai.organization = st.secrets['OPENAI_ORG']
 openai.api_key = st.secrets['OPENAI_API_KEY']
@@ -35,6 +39,13 @@ nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qu
 ### 5) add button to show text of the response
 ### 6) send back audio of the response
 
+
+st.title("Audio Recorder")
+audio = audiorecorder("Click to record", "Click to stop recording")
+
+if len(audio) > 0:
+    # To play audio in frontend:
+    st.audio(audio.export().read()) 
 
 def record_audio():
     st.write(sd.query_devices())
@@ -101,8 +112,8 @@ left, right = st.columns(2, gap = "medium", )
 with left: 
     st.write(name)
     if(st.button("speak")):
-        audio = record_audio()
-        audio_input_text = audio_to_text(audio)
+        #audio = record_audio()
+        #audio_input_text = audio_to_text(audio)
     input_text = st.text_area(label="talk with GPT", height=20)
     if st.button("prompt"):
         bot_message = call_turbo(input_text, 500)

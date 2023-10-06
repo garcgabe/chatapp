@@ -2,6 +2,7 @@ gtts
 openai
 playsound
 streamlit
+streamlit-audiorecorder
 sounddevice
 #scipy
 whisper
