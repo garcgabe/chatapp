@@ -40,26 +40,13 @@ nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qu
 ### 6) send back audio of the response
 
 
-st.title("Audio Recorder")
-audio = audiorecorder("Click to record", "Click to stop recording")
-
-if len(audio) > 0:
-    # To play audio in frontend:
-    st.audio(audio.export().read()) 
-
 def record_audio():
-    st.write(sd.query_devices())
-    sd.InputStream(device=0, channels=1)
-    fs = 44100  # Sample rate
-    seconds = 10  # Duration of recording
-
-    recording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
-    sd.wait()  # Wait until recording is finished
-    # write('output.wav', fs, recording)  # Save as WAV file
-
-    # returns ND Array of float64
-    return recording
-
+    audio = audiorecorder("Record", "Stop recording")
+    if len(audio) > 0:
+    # To play audio in frontend:
+        st.audio(audio.export().read())
+    return audio
+ 
 # Whisper performs speech-to-text
 # give it output.wav
 def audio_to_text(audio_file):
@@ -111,9 +98,8 @@ left, right = st.columns(2, gap = "medium", )
 
 with left: 
     st.write(name)
-    #if(st.button("speak")):
-        #audio = record_audio()
-        #audio_input_text = audio_to_text(audio)
+    audio_input = record_audio()
+    audio_input_text = audio_to_text(audio_input)
     input_text = st.text_area(label="talk with GPT", height=20)
     if st.button("prompt"):
         bot_message = call_turbo(input_text, 500)
