@@ -43,10 +43,11 @@ def record_audio():
     # To play audio in frontend:
         st.audio(audio.export().read())
         audio.export("audio.wav", format="wav")
+        return "audio.wav"
     
     # convert audio to np.ndarray for Whisper
     #sample_audio = audio.get_array_of_samples()
-    return "audio.wav"
+
  
 # Whisper performs speech-to-text
 # give it output.wav
