@@ -46,10 +46,11 @@ def record_audio():
     if len(audio) > 0:
     # To play audio in frontend:
         st.audio(audio.export().read())
+        audio.export("audio.wav", format="wav")
     
     # convert audio to np.ndarray for Whisper
-    sample_audio = audio.get_array_of_samples()
-    return np.ndarray(sample_audio)
+    #sample_audio = audio.get_array_of_samples()
+    return "audio.wav"
  
 # Whisper performs speech-to-text
 # give it output.wav
@@ -103,7 +104,8 @@ left, right = st.columns(2, gap = "medium", )
 with left: 
     st.write(name)
     audio_input = record_audio()
-    audio_input_text = audio_to_text(audio_input)
+    if len(audio_input) > 0:
+        audio_input_text = audio_to_text(audio_input)
     input_text = st.text_area(label="talk with GPT", height=20)
     if st.button("prompt"):
         bot_message = call_turbo(input_text, 500)
