@@ -5,4 +5,4 @@ streamlit
 streamlit-audiorecorder
 sounddevice
 #scipy
-whisper
+git+https://github.com/openai/whisper.git 
