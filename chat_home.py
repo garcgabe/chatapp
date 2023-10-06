@@ -5,8 +5,8 @@ import openai
 openai.organization = st.secrets['OPENAI_ORG']
 openai.api_key = st.secrets['OPENAI_API_KEY']
 
-response = 'enter an input to receive an output'
-message = "no chat sent"
+user_message = 'enter an input to receive an output'
+bot_message = "no chat sent"
 name = 'gabriel garcia'
 ipsum = """Lorem ipsum dolor sit amet, 
 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -14,7 +14,6 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
 nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
  mollit anim id est laborum."""
-
 
 def call_turbo(prompt, max_tokens):
     response = openai.ChatCompletion.create(
@@ -43,11 +42,13 @@ def toSpeech(message, language):
 st.title("welcome to gpt")
 
 
-user_input_container = st.chat_message("user")
-input_text = st.chat_input("chat here")
-response = call_turbo(input_text, 500)
+with st.chat_message("user"):
+    st.write(user_message)
+    input_text = st.chat_input("chat here")
+    response = call_turbo(input_text, 500)
 
-assistant_output_container = st.chat_message("assistant")
+with st.chat_message("assistant"):
+    st.write(bot_message)
 
 
 # left, right = st.columns(2, gap = "medium", )
