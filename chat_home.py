@@ -11,6 +11,7 @@ import whisper
 # record audio
 import sounddevice as sd
 from audiorecorder import audiorecorder
+import numpy as np
 
 #from scipy.io.wavfile import write
 
@@ -45,7 +46,10 @@ def record_audio():
     if len(audio) > 0:
     # To play audio in frontend:
         st.audio(audio.export().read())
-    return audio
+    
+    # convert audio to np.ndarray for Whisper
+    sample_audio = audio.get_array_of_samples()
+    return np.ndarray(sample_audio)
  
 # Whisper performs speech-to-text
 # give it output.wav
