@@ -105,9 +105,10 @@ with left:
     input_text = st.text_area(label="talk with GPT", height=20)
     if st.button("prompt"):
         bot_message = call_turbo(input_text, 500)
-        st.text(bot_message)
     if audio_input_text:
         st.write(f"You said:\n{audio_input_text}")
+    if st.button("send"):
+        bot_message = call_turbo(input_text, 500)
 
 
 with right:
