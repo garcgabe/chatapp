@@ -58,7 +58,6 @@ st.title("welc to gpt")
 left, right = st.columns(2, gap = "medium", )
 
 with left: 
-    st.subheader("Human")
     st.write(name)
     #st.text(ipsum)
     input_text = st.text_area(label="talk with GPT", height=20)
@@ -71,7 +70,6 @@ with left:
 
 with right:
     st.subheader("GPT")
-    st.write("mr\. chat")
     if type(response) != str:
         message = response['choices'][0]['message']['content']
     st.write(message)
