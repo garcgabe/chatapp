@@ -51,7 +51,8 @@ with st.chat_message("assistant"):
     st.write(bot_message)
 
 input_text = st.chat_input("chat here")
-bot_message = call_turbo(input_text, 500)
+if input_text:
+    bot_message = call_turbo(input_text, 500)
 
 
 # left, right = st.columns(2, gap = "medium", )
