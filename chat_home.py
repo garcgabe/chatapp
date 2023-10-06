@@ -43,34 +43,35 @@ def toSpeech(message, language):
 st.title("welc to gpt")
 
 
-with st.chat_message("user"):
-    st.write(user_message)
+# with st.chat_message("user"):
+#     st.write(user_message)
 
-with st.chat_message("assistant"):
-    st.write(bot_message)
+# with st.chat_message("assistant"):
+#     st.write(bot_message)
 
-input_text = st.chat_input("chat here")
-if input_text:
-    bot_message = call_turbo(input_text, 500)
-
-
-# left, right = st.columns(2, gap = "medium", )
-
-# with left: 
-#     st.subheader("Human")
-#     st.write(name)
-#     #st.text(ipsum)
-#     input_text = st.text_area(label="talk with GPT", height=20)
-#     if(st.button("speak")):
-
-#     if st.button("prompt"):
-#         response = call_turbo(input_text, 500)
-#         st.text(response)
+# input_text = st.chat_input("chat here")
+# if input_text:
+#     bot_message = call_turbo(input_text, 500)
 
 
-# with right:
-#     st.subheader("GPT")
-#     st.write("mr\. chat")
-#     if type(response) != str:
-#         message = response['choices'][0]['message']['content']
-#     st.write(message)
+
+left, right = st.columns(2, gap = "medium", )
+
+with left: 
+    st.subheader("Human")
+    st.write(name)
+    #st.text(ipsum)
+    input_text = st.text_area(label="talk with GPT", height=20)
+    if(st.button("speak")):
+
+    if st.button("prompt"):
+        response = call_turbo(input_text, 500)
+        st.text(response)
+
+
+with right:
+    st.subheader("GPT")
+    st.write("mr\. chat")
+    if type(response) != str:
+        message = response['choices'][0]['message']['content']
+    st.write(message)
