@@ -18,7 +18,7 @@ openai.api_key = st.secrets['OPENAI_API_KEY']
 user_message = 'enter an input to receive an output'
 input_text =''
 audio_input_text=''
-bot_message = "no chat sent"
+bot_message = "no chat sent yet! click \"send\" to chat with GPT"
 ipsum = """Lorem ipsum dolor sit amet, 
 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
@@ -37,7 +37,7 @@ nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qu
 
 
 def record_audio():
-    audio = audiorecorder("Record", "Stop recording")
+    audio = audiorecorder("Record audio", "Stop recording")
     if len(audio) > 0:
     # To play audio in frontend:
         st.audio(audio.export().read())
@@ -85,12 +85,14 @@ st.title("Conversational GPT")
 left, right = st.columns(2, gap = "medium", )
 
 with left: 
-
+    st.write("tap record to talk with GPT below:")
     audio_input = record_audio()
     if len(audio_input) > 0:
         audio_input_text = audio_to_text(audio_input)
-    input_text = st.text_area(label="chat here", height=20)
-    if st.button("send"):
+    st.write("")
+    label="chat below without audio:",
+    input_text = st.text_area( height=10)
+    if st.button("click here to send message"):
         if len(input_text)>0:
             bot_message = call_turbo(input_text, 500)
         elif audio_input_text:
@@ -103,5 +105,4 @@ with left:
 
 with right:
     st.subheader("GPT")
-    if bot_message != "no chat sent":
-        st.write(bot_message)
+    st.write(bot_message)
