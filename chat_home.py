@@ -86,9 +86,9 @@ with left:
     input_text = st.text_area(label="chat below without audio:", height=10)
     if st.button("send message"):
         if len(input_text)>0:
-            bot_message = call_turbo(input_text, 500)
+            bot_message = call_turbo(input_text)
         elif audio_input_text:
-            bot_message = call_turbo(audio_input_text, 500)
+            bot_message = call_turbo(audio_input_text)
         else:
             pass
     if audio_input_text:
