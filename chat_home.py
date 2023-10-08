@@ -18,7 +18,7 @@ openai.api_key = st.secrets['OPENAI_API_KEY']
 user_message = 'enter an input to receive an output'
 input_text =''
 audio_input_text=''
-bot_message = "no chat sent yet! click \"send message \" to chat with GPT"
+bot_message = "no chat sent yet! click \"send message \" to chat."
 ipsum = """Lorem ipsum dolor sit amet, 
 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
@@ -44,10 +44,6 @@ def record_audio():
         audio.export("audio.wav", format="wav")
         return "audio.wav"
     return ""
-    
-    # convert audio to np.ndarray for Whisper
-    #sample_audio = audio.get_array_of_samples()
-
  
 # Whisper performs speech-to-text
 # give it output.wav
@@ -79,8 +75,6 @@ def toSpeech(message, language):
 ##
 
 st.title("Conversational GPT")
-
-
 left, right = st.columns(2, gap = "medium", )
 
 with left: 
@@ -99,7 +93,6 @@ with left:
             pass
     if audio_input_text:
         st.write(f"You said:\n{audio_input_text}")
-
 
 with right:
     st.subheader("GPT")
