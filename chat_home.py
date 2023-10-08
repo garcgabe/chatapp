@@ -90,8 +90,7 @@ with left:
     if len(audio_input) > 0:
         audio_input_text = audio_to_text(audio_input)
     st.write("")
-    label="chat below without audio:",
-    input_text = st.text_area( height=10)
+    input_text = st.text_area(label="chat below without audio:", height=10)
     if st.button("click here to send message"):
         if len(input_text)>0:
             bot_message = call_turbo(input_text, 500)
