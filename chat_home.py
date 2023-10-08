@@ -85,10 +85,11 @@ st.title("Conversational GPT")
 left, right = st.columns(2, gap = "medium", )
 
 with left: 
-    
+
     audio_input = record_audio()
     if len(audio_input) > 0:
         audio_input_text = audio_to_text(audio_input)
+    input_text = st.text_area(label="chat here", height=20)
     if st.button("send"):
         if len(input_text)>0:
             bot_message = call_turbo(input_text, 500)
@@ -96,8 +97,6 @@ with left:
             bot_message = call_turbo(audio_input_text, 500)
         else:
             pass
-    if st.button("text input"):
-        input_text = st.text_area(label="chat here", height=20)
     if audio_input_text:
         st.write(f"You said:\n{audio_input_text}")
 
