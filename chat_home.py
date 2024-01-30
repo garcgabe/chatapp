@@ -64,7 +64,7 @@ def call_turbo(prompt, max_tokens=1000):
     return response['choices'][0]['message']['content']
 
 
-def toSpeech(message, language):
+def to_speech(message, language):
     speech = gTTS(text = message, lang=language)
     speech.save('example.mp3')
     playsound('example.mp3')
